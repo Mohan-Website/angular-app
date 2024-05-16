@@ -1,0 +1,32 @@
+<div class="container">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+        <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" formControlName="email">
+            <mat-icon matSuffix>email</mat-icon>
+            
+        </mat-form-field>
+        <span class="text-danger" *ngIf="(loginFormControl.email.touched || submitted) && loginFormControl['email'].errors?.required">
+            Email is required
+        </span>
+
+        <br>
+
+        <mat-form-field appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput placeholder="Password" formControlName="password" type="password">
+            <mat-icon matSuffix>password</mat-icon>
+        </mat-form-field>
+
+        <span class="text-danger" *ngIf="(loginFormControl.password.touched || submitted) && loginFormControl.password.errors?.required">
+            Password is required
+        </span>
+
+        <br>
+
+        <button mat-raised-button color="primary">Login</button>
+
+        <a routerLink="/auth/sign-up">Sign Up</a>
+
+    </form>
+</div>
